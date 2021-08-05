@@ -1,11 +1,14 @@
 import {
   categoriesType,
+  helpersTypes,
   optionsTypes,
   questionsTypes,
+  rankTypes,
   scoreAndIndexTypes,
 } from './actionTypes';
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 
-const initialState = {
+export const initialState = {
   categories: {
     categories: '',
     errorMessage: null,
@@ -25,6 +28,13 @@ const initialState = {
   gameScoreAndIndex: {
     index: 0,
     score: 0,
+  },
+  helpers: {
+    markedAnswer: null,
+    answerSelected: false,
+  },
+  rank: {
+    rank: [],
   },
 };
 
@@ -75,6 +85,14 @@ const optionsReducer = (state = initialState.options, { type, payload }) => {
         ...state,
         amount: payload,
       };
+    case optionsTypes.CLEAR_OPTIONS:
+      return {
+        name: '',
+        category: '',
+        difficulty: '',
+        questionType: '',
+        amount: 10,
+      };
     default:
       return state;
   }
@@ -113,6 +131,44 @@ const scoreIndexReducer = (
         ...state,
         score: payload,
       };
+    case scoreAndIndexTypes.CLEAR_SCORE_AND_INDEX:
+      return {
+        index: 0,
+        score: 0,
+      };
+    default: {
+      return state;
+    }
+  }
+};
+const helpersReducer = (state = initialState.helpers, { type, payload }) => {
+  switch (type) {
+    case helpersTypes.SET_MARKED_ANSWER:
+      return {
+        ...state,
+        markedAnswer: payload,
+      };
+    case helpersTypes.SET_ANSWER_SELECTED:
+      return {
+        ...state,
+        answerSelected: payload,
+      };
+    default: {
+      return state;
+    }
+  }
+};
+const rankReducer = (
+  state = initialState.rank,
+  { type, name, amount, score }
+) => {
+  switch (type) {
+    case rankTypes.ADD_TO_RANK: {
+      return {
+        ...state,
+        rank: [...state.rank, { name, amount, score }],
+      };
+    }
     default: {
       return state;
     }
@@ -123,5 +179,7 @@ const Reducers = {
   optionsReducer,
   questionsReducer,
   scoreIndexReducer,
+  helpersReducer,
+  rankReducer,
 };
 export default Reducers;

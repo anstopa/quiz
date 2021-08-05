@@ -7,6 +7,8 @@ const rootReducer = () =>
     options: Reducers.optionsReducer,
     questions: Reducers.questionsReducer,
     scoreAndIndex: Reducers.scoreIndexReducer,
+    helpers: Reducers.helpersReducer,
+    rank: Reducers.rankReducer,
   });
 
 export default rootReducer;

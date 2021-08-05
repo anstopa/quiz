@@ -8,6 +8,7 @@ export const optionsTypes = {
   CHANGE_DIFFICULTY: 'CHANGE_DIFFICULTY',
   CHANGE_TYPE: 'CHANGE_TYPE',
   CHANGE_AMOUNT: 'CHANGE_AMOUNT',
+  CLEAR_OPTIONS: 'CLEAR_OPTIONS',
 };
 
 export const questionsTypes = {
@@ -17,4 +18,12 @@ export const questionsTypes = {
 export const scoreAndIndexTypes = {
   SET_INDEX: 'SET_INDEX',
   SET_SCORE: 'SET_SCORE',
+  CLEAR_SCORE_AND_INDEX: 'CLEAR_SCORE_AND_INDEX',
+};
+export const helpersTypes = {
+  SET_MARKED_ANSWER: 'SET_MARKED_ANSWER',
+  SET_ANSWER_SELECTED: 'SET_ANSWER_SELECTED',
+};
+export const rankTypes = {
+  ADD_TO_RANK: 'ADD_TO_RANK',
 };
