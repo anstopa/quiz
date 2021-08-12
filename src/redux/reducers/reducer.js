@@ -6,7 +6,6 @@ import {
   rankTypes,
   scoreAndIndexTypes,
 } from './actionTypes';
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 
 export const initialState = {
   categories: {

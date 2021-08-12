@@ -10,8 +10,7 @@ import {
 const EndGame = () => {
   const history = useHistory();
   const score = useSelector((state) => state.scoreAndIndex.score);
-  const name = useSelector((state) => state.options.name);
-  // const questionIndex = useSelector((state) => state.scoreAndIndex.index);
+  const { name } = useSelector((state) => state.options);
   const dispatch = useDispatch();
   const handleNewGame = () => {
     dispatch({

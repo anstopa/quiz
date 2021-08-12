@@ -14,7 +14,7 @@ const Rank = () => {
           <p>{user.score}</p>
         </>
       ))}
-      <button onClick={() => history.push('/endgame')}>Back</button>
+      <button onClick={() => history.goBack()}>Back</button>
     </div>
   );
 };
